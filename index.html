@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MoveIntel — Launching Soon</title>
+  <!-- Favicon: mi logomark -->
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@100;200;300&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html, body {
+      height: 100%;
+    }
+
+    body {
+      background: #ffffff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 40px 24px 72px;
+    }
+
+    /* Fluid logo — scales from full desktop width down to narrow mobile */
+    .logo-img {
+      width: min(680px, 88vw);
+      height: auto;
+      display: block;
+    }
+
+    .tagline {
+      margin-top: 32px;
+      font-family: 'Raleway', 'Gill Sans', 'Century Gothic', sans-serif;
+      font-weight: 200;
+      font-size: clamp(11px, 3.5vw, 17px);
+      letter-spacing: clamp(3px, 1.5vw, 7px);
+      text-transform: uppercase;
+      color: #999;
+      text-align: center;
+    }
+
+    footer {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 14px 16px;
+      text-align: center;
+      font-family: 'Raleway', 'Gill Sans', 'Century Gothic', sans-serif;
+      font-weight: 200;
+      font-size: clamp(10px, 2.5vw, 11px);
+      letter-spacing: 0.5px;
+      color: #bbb;
+      border-top: 1px solid #f0f0f0;
+      background: #fff;
+    }
+  </style>
+</head>
+<body>
+
+  <img class="logo-img" src="Mi_Logo.png" alt="MoveIntel" />
+  <p class="tagline">Launching Soon</p>
+
+  <footer>&#169; 2026 MoveIntel &nbsp;|&nbsp; Fruitful Consultancy Ltd.</footer>
+
+</body>
+</html>
