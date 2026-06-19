@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MoveIntel — Home Mover Intelligence</title>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAgMTAwIj4KICA8cmVjdCB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgcng9IjE2IiBmaWxsPSIjRkZFNjNEIi8+CiAgPHRleHQgeD0iNDgiIHk9IjgyIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0iQXJpYWwsIEhlbHZldGljYSwgc2Fucy1zZXJpZiIgZm9udC13ZWlnaHQ9IjkwMCIgZm9udC1zaXplPSI5MiIgZmlsbD0iIzExMTExMSI+bTwvdGV4dD4KICA8cmVjdCB4PSI3NCIgeT0iMTgiIHdpZHRoPSIxMSIgaGVpZ2h0PSIzNCIgcng9IjMiIGZpbGw9IiMxMTExMTEiLz4KPC9zdmc+">
+<link rel="icon" type="image/png" sizes="64x64" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAABmJLR0QA/wD/AP+gvaeTAAAFQklEQVR4nO2bW2wUVRjHf2d2t9vdXrYslLbICoUqJArBIglKK0YxmGgwaWIkIQbFAAapF3hACSaiifFChCgBhBcRQoIXUuHBBjCUW9EQoogQjVwC0kq7tLRs752d40OhtLA7M63TPRT299Q958yZ//n3m2+/MzkriIGUCKqLnkSIEpDFIPKAobHG3sZcAs4jRTlufYvIqTwTa5C4uUFWFU9DsBqYMtAKE0gUwXq83hUiuLexZ0cvA2R10QIQawFPQuUljnNExUwROvD39YZuA2RV8WIEX6jRlUhkDVF3kQhVnIZrBlwL+wrArVJaAjmB5ntE5O5u1qREgFjF3bN4gAkYLSsAhKya/hTC2K1akQJa0Y0CDWGUqFaiCB8ebY4Gski1EmVIZmkg7lGtQyEFGpClWoVChruJUQ0OJg7+0sSvJ9uQsutzikfw9OMZ5N+bYudyIWR1sRxIgQNJWXkj85b+c0t7IMPF4R8KGJFjWdBKbUCUJYifDjXFbG+MRNlXGbvvZga1AZ16/ODt7LQX2IPaACdIGqBagGqSBqgWoJoB3QKfvdDOsd9bqQnrdOqSrEwX94/xUjjBjy/Vfv119kI7x0+1calWp7XNYFjQzcg8D9Ho/9doaUDtZZ3x0/+M2z/7uSzWfTiyV1t5RYRP1tXy28nWmNf4fRrPPxtgeWkO2UPjS9jxYyNrNoX546+2mP0ul5V6aywNCGSa3yVcp3f/reuSpe9Xs+X7K6bXtLQabP72Crv2RNi+fhSTJ/p69be1SxYuu8iuPY1xZujCiQiwzAHeFIHLFT9cGyM3VJS+W2W5+J7UN+iUzD/H+Ysd3W2GAXPfvGC5eKewlQRTvfENuBoxAPjqm3q272zos4BIk8GSldXdn1dtqGXPgUif5+kvtpKgL1WjucWI2dfUbHC5XmflZzX9FrGvsonjp1pJT9NYvelyv+fpD7YMECYJu6XVYP3Xdb0ehfEFXsaN9XI1YnDkWDNt7dZ1eVl5I//W6rR33DA6N9vN5Il+pISjx1t65RunsGWAy+RBaWox2LStDoAhARdffhxiRnF6d399g86rb19k70Hz3dm2sgbqG7pMdLsF7y3JZcGcIG53l/udnZJPN4RZtaHWjmTb2MoBZhGg65KmZoMUj+C7jaN7LR4gmOVm85pRjB1l/oIiXKcTjXZFykfv5LFo7tDuxQN4PILlpcN5YZazL7AcqwQXvzyMhx70xezzpQremp9ta56phX7mzQ7G7V+2aLjpP6SvOGKAN0XjtZeGmY55ZkYmmo27vfGKuVGjQylMGB/b6P7giAGPTU1jSMC8YApkuLgv32s6JiNd44lp6aZjAKZMsjbA77O3NEcMmFrotzUuP2SeByY94MfjsY7v/JC5kb5U7ZZcFA9HDBg31lzQdbIsosTuPIFMc9mPPpxGMMvePs8RA+zezCoss4P2djdpFvP0ZZPkiAF+n720rGnm49LTbD63FvP0BUcMEE5+LyWYu/6NUNIA1QJUkzRAtQDVJA1QLUA1SQNUC1BN0gDVAlSTNEC1ANUkDVAtQDWD+pygA0gNuOsNCKtWoZA6DTitWoVCqjWk3KlahTrEfg0juhWIfZjnTkeIMk2EjlQhxOeqtSQcKX4md39FVx0gUj8ATqhVlFA60MTrQlw7Li9ydzcTdZWA7P85l0GFLBV5+49Cj0pQhCpO4zKmATF/ZHyH0AFyoRhxaOP1hl6lsMipPIO3oxDBWsCBU3i3FYcRFPdcPJj8XkjWFI3B4EUQM5GMBvIGWqHDhIFqBAdA7hB5hypiDfoPfQp3iMjD92YAAAAASUVORK5CYII=">
+<link rel="apple-touch-icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAABmJLR0QA/wD/AP+gvaeTAAAFQklEQVR4nO2bW2wUVRjHf2d2t9vdXrYslLbICoUqJArBIglKK0YxmGgwaWIkIQbFAAapF3hACSaiifFChCgBhBcRQoIXUuHBBjCUW9EQoogQjVwC0kq7tLRs752d40OhtLA7M63TPRT299Q958yZ//n3m2+/MzkriIGUCKqLnkSIEpDFIPKAobHG3sZcAs4jRTlufYvIqTwTa5C4uUFWFU9DsBqYMtAKE0gUwXq83hUiuLexZ0cvA2R10QIQawFPQuUljnNExUwROvD39YZuA2RV8WIEX6jRlUhkDVF3kQhVnIZrBlwL+wrArVJaAjmB5ntE5O5u1qREgFjF3bN4gAkYLSsAhKya/hTC2K1akQJa0Y0CDWGUqFaiCB8ebY4Gski1EmVIZmkg7lGtQyEFGpClWoVChruJUQ0OJg7+0sSvJ9uQsutzikfw9OMZ5N+bYudyIWR1sRxIgQNJWXkj85b+c0t7IMPF4R8KGJFjWdBKbUCUJYifDjXFbG+MRNlXGbvvZga1AZ16/ODt7LQX2IPaACdIGqBagGqSBqgWoJoB3QKfvdDOsd9bqQnrdOqSrEwX94/xUjjBjy/Vfv119kI7x0+1calWp7XNYFjQzcg8D9Ho/9doaUDtZZ3x0/+M2z/7uSzWfTiyV1t5RYRP1tXy28nWmNf4fRrPPxtgeWkO2UPjS9jxYyNrNoX546+2mP0ul5V6aywNCGSa3yVcp3f/reuSpe9Xs+X7K6bXtLQabP72Crv2RNi+fhSTJ/p69be1SxYuu8iuPY1xZujCiQiwzAHeFIHLFT9cGyM3VJS+W2W5+J7UN+iUzD/H+Ysd3W2GAXPfvGC5eKewlQRTvfENuBoxAPjqm3q272zos4BIk8GSldXdn1dtqGXPgUif5+kvtpKgL1WjucWI2dfUbHC5XmflZzX9FrGvsonjp1pJT9NYvelyv+fpD7YMECYJu6XVYP3Xdb0ehfEFXsaN9XI1YnDkWDNt7dZ1eVl5I//W6rR33DA6N9vN5Il+pISjx1t65RunsGWAy+RBaWox2LStDoAhARdffhxiRnF6d399g86rb19k70Hz3dm2sgbqG7pMdLsF7y3JZcGcIG53l/udnZJPN4RZtaHWjmTb2MoBZhGg65KmZoMUj+C7jaN7LR4gmOVm85pRjB1l/oIiXKcTjXZFykfv5LFo7tDuxQN4PILlpcN5YZazL7AcqwQXvzyMhx70xezzpQremp9ta56phX7mzQ7G7V+2aLjpP6SvOGKAN0XjtZeGmY55ZkYmmo27vfGKuVGjQylMGB/b6P7giAGPTU1jSMC8YApkuLgv32s6JiNd44lp6aZjAKZMsjbA77O3NEcMmFrotzUuP2SeByY94MfjsY7v/JC5kb5U7ZZcFA9HDBg31lzQdbIsosTuPIFMc9mPPpxGMMvePs8RA+zezCoss4P2djdpFvP0ZZPkiAF+n720rGnm49LTbD63FvP0BUcMEE5+LyWYu/6NUNIA1QJUkzRAtQDVJA1QLUA1SQNUC1BN0gDVAlSTNEC1ANUkDVAtQDWD+pygA0gNuOsNCKtWoZA6DTitWoVCqjWk3KlahTrEfg0juhWIfZjnTkeIMk2EjlQhxOeqtSQcKX4md39FVx0gUj8ATqhVlFA60MTrQlw7Li9ydzcTdZWA7P85l0GFLBV5+49Cj0pQhCpO4zKmATF/ZHyH0AFyoRhxaOP1hl6lsMipPIO3oxDBWsCBU3i3FYcRFPdcPJj8XkjWFI3B4EUQM5GMBvIGWqHDhIFqBAdA7hB5hypiDfoPfQp3iMjD92YAAAAASUVORK5CYII=">
+<style>
+  :root{
+    /* Brand yellow (#ffe63d) palette — dark text used on yellow for contrast */
+    --orange:#FFE63D;
+    --orange-deep:#F4CE00;
+    --orange-soft:#FFF4BF;
+    --orange-tint:#FFFBE6;
+    --ink:#16181D;
+    --ink-2:#3A3F49;
+    --muted:#6B7280;
+    --line:#ECE7E3;
+    --bg:#FFFFFF;
+    --bg-warm:#FBF8F0;
+    --bg-dark:#16181D;
+    --green-pos:#1E9E6A;
+    --radius:16px;
+    --shadow:0 1px 2px rgba(16,18,29,.04),0 8px 24px rgba(16,18,29,.06);
+    --shadow-lg:0 24px 60px rgba(180,150,0,.18);
+    --font:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:var(--font);color:var(--ink);background:var(--bg);line-height:1.6;-webkit-font-smoothing:antialiased}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:1140px;margin:0 auto;padding:0 24px}
+  h1,h2,h3{line-height:1.15;letter-spacing:-.02em;font-weight:800}
+  .eyebrow{display:inline-block;font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--ink);background:var(--orange-soft);padding:6px 12px;border-radius:999px;margin-bottom:18px}
+  .section{padding:96px 0;border-top:1px solid var(--line)}
+  .section h2{font-size:clamp(28px,4vw,42px);margin-bottom:16px}
+  .section .lead{font-size:18px;color:var(--ink-2);max-width:760px;margin-bottom:48px}
+  .btn{display:inline-flex;align-items:center;gap:8px;font-weight:700;font-size:15px;padding:13px 22px;border-radius:999px;transition:.18s;cursor:pointer;border:1.5px solid transparent}
+  .btn-primary{background:var(--orange);color:var(--ink);box-shadow:0 8px 20px rgba(244,206,0,.5)}
+  .btn-primary:hover{background:var(--orange-deep);color:var(--ink);transform:translateY(-1px)}
+  .btn-ghost{background:#fff;color:var(--ink);border-color:var(--line)}
+  .btn-ghost:hover{border-color:var(--orange-deep);color:var(--ink)}
+
+  /* NAV */
+  header.nav{position:sticky;top:0;z-index:50;background:#ffffff;border-bottom:1px solid var(--line)}
+  .nav-inner{display:flex;align-items:center;gap:28px;height:68px}
+  .logo{display:flex;align-items:center;gap:11px;font-weight:800;font-size:19px;letter-spacing:-.02em}
+  .mi-logo{height:34px;width:auto;display:block}
+  .logo small{font-weight:600;color:var(--muted);font-size:12px;border-left:1px solid var(--line);padding-left:11px;margin-left:1px}
+  .nav-links{display:flex;gap:22px;margin-left:auto;font-size:14.5px;font-weight:600;color:var(--ink-2)}
+  .nav-links a:hover{color:var(--ink)}
+  .nav-cta{display:flex;gap:10px;align-items:center}
+  @media(max-width:920px){.nav-links{display:none}.nav-cta .btn-ghost{display:none}}
+
+  /* HERO */
+  .hero{position:relative;background:
+     radial-gradient(1100px 480px at 80% -10%,var(--orange-tint),transparent 60%),
+     radial-gradient(700px 420px at 0% 110%,var(--bg-warm),transparent 55%)}
+  .hero-inner{padding:84px 0 72px;display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center}
+  .hero h1{font-size:clamp(34px,5.2vw,58px)}
+  .hero h1 em{font-style:normal;color:var(--ink);border-bottom:5px solid var(--orange);padding-bottom:2px}
+  .hero p.sub{font-size:19px;color:var(--ink-2);margin:22px 0 30px;max-width:540px}
+  .hero-cta{display:flex;gap:12px;flex-wrap:wrap}
+  .trust{margin-top:26px;font-size:13px;color:var(--muted)}
+  .trust b{color:var(--ink)}
+  @media(max-width:900px){.hero-inner{grid-template-columns:1fr;gap:36px}}
+
+  /* signal panel */
+  .panel{background:var(--bg-dark);border-radius:20px;padding:24px;box-shadow:var(--shadow-lg);color:#fff}
+  .panel .ph{display:flex;align-items:center;justify-content:space-between;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:#9aa0ab;margin-bottom:6px}
+  .live{display:flex;align-items:center;gap:7px;color:#fff}
+  .live .pulse{width:8px;height:8px;border-radius:50%;background:var(--orange);box-shadow:0 0 0 0 rgba(255,230,61,.7);animation:pulse 1.8s infinite}
+  @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(255,230,61,.6)}70%{box-shadow:0 0 0 10px rgba(255,230,61,0)}100%{box-shadow:0 0 0 0 rgba(255,230,61,0)}}
+  .sig{display:flex;gap:14px;padding:14px 6px;border-bottom:1px solid rgba(255,255,255,.08)}
+  .sig:last-child{border-bottom:0}
+  .sig .ic{width:38px;height:38px;border-radius:10px;background:rgba(255,230,61,.16);display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0}
+  .sig .nm{font-weight:700;font-size:15px}
+  .sig .ds{font-size:12.5px;color:#9aa0ab}
+  .sig .star{margin-left:auto;color:var(--orange);font-size:12px;font-weight:700;align-self:center}
+
+  /* stat strip */
+  .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;padding:40px 0;border-top:1px solid var(--line)}
+  .stat .num{font-size:clamp(26px,3.4vw,38px);font-weight:800;color:var(--ink);letter-spacing:-.02em}
+  .stat .lbl{font-size:13.5px;color:var(--muted);margin-top:4px}
+  /* info tooltip */
+  .info{display:inline-flex;align-items:center;justify-content:center;width:15px;height:15px;border-radius:50%;border:1.3px solid var(--muted);color:var(--muted);font-size:10px;font-weight:700;font-style:normal;cursor:help;position:relative;margin-left:5px;vertical-align:middle;line-height:1}
+  .info:hover{border-color:var(--ink);color:var(--ink)}
+  .info .tip{visibility:hidden;opacity:0;position:absolute;bottom:150%;left:50%;transform:translateX(-50%);width:240px;background:var(--ink);color:#fff;font-size:11.5px;font-weight:500;line-height:1.45;letter-spacing:normal;text-transform:none;text-align:left;padding:10px 12px;border-radius:9px;box-shadow:0 10px 28px rgba(0,0,0,.26);z-index:70;transition:.15s}
+  .info .tip:after{content:"";position:absolute;top:100%;left:50%;transform:translateX(-50%);border:6px solid transparent;border-top-color:var(--ink)}
+  .info:hover .tip{visibility:visible;opacity:1}
+  @media(max-width:680px){.info .tip{width:180px}}
+  @media(max-width:760px){.stats{grid-template-columns:repeat(2,1fr);gap:20px}}
+
+  /* generic cards grid */
+  .grid{display:grid;gap:22px}
+  .g4{grid-template-columns:repeat(4,1fr)}
+  .g3{grid-template-columns:repeat(3,1fr)}
+  .g2{grid-template-columns:repeat(2,1fr)}
+  @media(max-width:980px){.g4{grid-template-columns:repeat(2,1fr)}.g3{grid-template-columns:repeat(2,1fr)}}
+  @media(max-width:680px){.g4,.g3,.g2{grid-template-columns:1fr}}
+  .card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:26px;box-shadow:var(--shadow);transition:.18s}
+  .card:hover{transform:translateY(-3px);border-color:var(--orange);box-shadow:0 16px 40px rgba(16,18,29,.08)}
+  .card .ic{width:46px;height:46px;border-radius:12px;background:var(--orange-tint);display:flex;align-items:center;justify-content:center;font-size:22px;margin-bottom:16px}
+  .card h3{font-size:18px;margin-bottom:8px}
+  .card p{font-size:14.5px;color:var(--ink-2)}
+  .tag{display:inline-block;margin-top:14px;font-size:11.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--ink);background:var(--orange-soft);padding:5px 10px;border-radius:999px}
+  .tag.hi{background:var(--ink);color:#fff}
+
+  /* problem block */
+  .prob{background:var(--bg-warm)}
+  .prob-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start}
+  @media(max-width:860px){.prob-grid{grid-template-columns:1fr;gap:32px}}
+  table.cmp{width:100%;border-collapse:collapse;font-size:14px;background:#fff;border-radius:12px;overflow:hidden;box-shadow:var(--shadow)}
+  table.cmp th,table.cmp td{text-align:left;padding:13px 16px;border-bottom:1px solid var(--line)}
+  table.cmp th{background:var(--ink);color:#fff;font-size:12px;letter-spacing:.04em;text-transform:uppercase}
+  table.cmp tr:last-child td{border-bottom:0}
+  /* build-it table */
+  .build-wrap{overflow-x:auto;border-radius:var(--radius);box-shadow:var(--shadow);border:1px solid var(--line)}
+  table.build{width:100%;border-collapse:collapse;font-size:13.5px;background:#fff;min-width:760px}
+  table.build th,table.build td{text-align:left;padding:14px 16px;border-bottom:1px solid var(--line);vertical-align:top}
+  table.build th{background:var(--ink);color:#fff;font-size:11.5px;letter-spacing:.05em;text-transform:uppercase;font-weight:700;position:sticky;top:0}
+  table.build tr:last-child td{border-bottom:0}
+  table.build tbody tr:nth-child(even){background:var(--bg-warm)}
+  table.build .out{font-weight:700;color:var(--ink);width:20%}
+  table.build .src{width:26%;color:var(--ink-2)}
+  table.build .src b{color:var(--ink);font-weight:600}
+  table.build .how{width:34%;color:var(--ink-2)}
+  table.build .st{width:20%}
+  .stat-badge{display:inline-block;font-size:10.5px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;padding:4px 9px;border-radius:999px;white-space:nowrap}
+  .stat-badge.direct{background:#E3F4EC;color:#1E9E6A}
+  .stat-badge.proxy{background:var(--orange-soft);color:var(--ink)}
+  .stat-badge.comp{background:#E7EAF1;color:#3A3F49}
+  .bignum{background:var(--ink);color:#fff;border-radius:var(--radius);padding:30px;text-align:center}
+  .bignum .n{font-size:54px;font-weight:800;color:var(--orange);line-height:1}
+  .bignum .t{color:#c7ccd4;font-size:14px;margin-top:8px}
+
+  /* steps */
+  .steps{counter-reset:s;display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
+  @media(max-width:880px){.steps{grid-template-columns:repeat(2,1fr)}}
+  @media(max-width:560px){.steps{grid-template-columns:1fr}}
+  .step{position:relative;padding-top:20px}
+  .step .no{width:40px;height:40px;border-radius:50%;background:var(--orange);color:var(--ink);font-weight:800;display:flex;align-items:center;justify-content:center;margin-bottom:14px}
+  .step h3{font-size:16px;margin-bottom:6px}
+  .step p{font-size:14px;color:var(--ink-2)}
+
+  /* pricing */
+  .price{background:var(--bg-warm)}
+  .pcards{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;align-items:stretch}
+  @media(max-width:920px){.pcards{grid-template-columns:1fr}}
+  .pc{background:#fff;border:1px solid var(--line);border-radius:18px;padding:30px;display:flex;flex-direction:column;position:relative}
+  .pc.feat{border:2px solid var(--orange-deep);box-shadow:var(--shadow-lg)}
+  .pc .badge{position:absolute;top:-13px;left:30px;background:var(--orange);color:var(--ink);font-size:11.5px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;padding:5px 12px;border-radius:999px}
+  .pc .kicker{font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+  .pc h3{font-size:22px;margin:6px 0 8px}
+  .pc .desc{font-size:14px;color:var(--ink-2);min-height:62px}
+  .pc .amt{font-size:34px;font-weight:800;margin:14px 0 2px}
+  .pc .amt small{font-size:14px;color:var(--muted);font-weight:600}
+  .pc ul{list-style:none;margin:18px 0 24px;display:flex;flex-direction:column;gap:10px}
+  .pc li{font-size:14px;padding-left:26px;position:relative;color:var(--ink-2)}
+  .pc li:before{content:"✓";position:absolute;left:0;color:var(--ink);font-weight:800}
+  .pc .btn{margin-top:auto;justify-content:center}
+
+  /* ROI */
+  .roi-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:36px;align-items:start}
+  @media(max-width:920px){.roi-grid{grid-template-columns:1fr}}
+  .roi-table{background:#fff;border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow)}
+  .roi-row{display:grid;grid-template-columns:1fr auto;gap:12px;align-items:center;padding:11px 18px;border-bottom:1px solid var(--line);font-size:14px}
+  .roi-row:last-child{border-bottom:0}
+  .roi-row.head{background:var(--orange-tint);font-weight:700;color:var(--ink);font-size:12px;letter-spacing:.06em;text-transform:uppercase}
+  .roi-row .val{font-weight:700;font-variant-numeric:tabular-nums}
+  .roi-row input{width:104px;text-align:right;font:inherit;font-weight:700;padding:6px 9px;border:1px solid var(--line);border-radius:8px;color:var(--ink)}
+  .roi-row input:focus{outline:2px solid var(--orange-soft);border-color:var(--orange-deep)}
+  .roi-note{font-size:12.5px;color:var(--muted);margin-top:14px}
+  /* key-metric slider */
+  .slider-row{display:block;background:var(--orange-tint);border-bottom:1px solid var(--orange-soft)}
+  .slider-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;font-weight:600}
+  .keytag{display:inline-block;font-size:10.5px;font-weight:800;letter-spacing:.05em;text-transform:uppercase;color:var(--ink);background:var(--orange);padding:3px 8px;border-radius:999px;margin-left:6px;vertical-align:middle}
+  .slider-val{font-size:24px;font-weight:800;color:var(--ink);font-variant-numeric:tabular-nums}
+  .rng{-webkit-appearance:none;appearance:none;width:100%;height:8px;border-radius:999px;background:linear-gradient(90deg,var(--orange) 0%,var(--orange) 42%,#efe7c4 42%,#efe7c4 100%);outline:none;cursor:pointer}
+  .rng::-webkit-slider-thumb{-webkit-appearance:none;appearance:none;width:24px;height:24px;border-radius:50%;background:#fff;border:3px solid var(--ink);box-shadow:0 2px 6px rgba(0,0,0,.2);cursor:pointer}
+  .rng::-moz-range-thumb{width:22px;height:22px;border-radius:50%;background:#fff;border:3px solid var(--ink);box-shadow:0 2px 6px rgba(0,0,0,.2);cursor:pointer}
+  .rng-scale{display:flex;justify-content:space-between;font-size:11px;color:var(--muted);margin-top:6px}
+  .result{display:grid;gap:16px}
+  .rcard{background:var(--ink);color:#fff;border-radius:var(--radius);padding:24px}
+  .rcard.accent{background:linear-gradient(135deg,var(--orange),var(--orange-deep));color:var(--ink)}
+  .rcard .n{font-size:38px;font-weight:800;line-height:1}
+  .rcard .t{font-size:13.5px;color:#c7ccd4;margin-top:6px}
+  .rcard.accent .t{color:rgba(0,0,0,.66)}
+  .rcard.lite{background:#fff;border:1px solid var(--line);color:var(--ink)}
+  .rcard.lite .n{color:var(--ink)}
+  .rcard.lite .t{color:var(--muted)}
+  /* reordered ROI: retention | acquisition, then total, then cumulative */
+  .roi-cols{display:grid;grid-template-columns:1fr 1fr;gap:22px;align-items:stretch}
+  @media(max-width:860px){.roi-cols{grid-template-columns:1fr}}
+  .roi-panel{display:flex;flex-direction:column;background:#fff;border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow)}
+  .roi-panel.feat{border:2px solid var(--orange-deep)}
+  .roi-panel .ptag{display:flex;justify-content:space-between;align-items:center;padding:12px 18px;background:var(--orange-tint);font-weight:800;color:var(--ink);font-size:12px;letter-spacing:.05em;text-transform:uppercase}
+  .roi-panel.plain .ptag{background:var(--bg-warm);color:var(--ink-2)}
+  .roi-panel .rows{flex:1}
+  .roi-summary{display:flex;justify-content:space-between;align-items:center;gap:14px;padding:16px 18px;background:var(--ink);color:#fff;margin-top:auto}
+  .roi-summary.accent{background:linear-gradient(135deg,var(--orange),var(--orange-deep));color:var(--ink)}
+  .roi-summary .n{font-size:28px;font-weight:800;line-height:1;font-variant-numeric:tabular-nums}
+  .roi-summary .t{font-size:11.5px;color:#c7ccd4;text-align:right;max-width:54%}
+  .roi-summary.accent .t{color:rgba(0,0,0,.66)}
+  .roi-final{margin-top:22px;display:flex;flex-direction:column;gap:14px}
+  .roi-total{display:flex;justify-content:space-between;align-items:center;gap:16px;background:linear-gradient(135deg,var(--orange),var(--orange-deep));color:var(--ink);border-radius:var(--radius);padding:22px 26px}
+  .roi-total .n{font-size:clamp(34px,5vw,46px);font-weight:800;line-height:1}
+  .roi-total .t{font-size:13px;color:rgba(0,0,0,.7);max-width:48%;text-align:right}
+  .roi-cumulative{display:flex;justify-content:space-between;align-items:center;gap:16px;background:#fff;border:1px dashed var(--orange-deep);border-radius:var(--radius);padding:18px 22px}
+  .roi-cumulative .n{font-size:30px;font-weight:800;color:var(--ink)}
+  .roi-cumulative .t{font-size:12.5px;color:var(--muted);max-width:60%;text-align:right}
+  .inline-input{width:52px;text-align:center;font:inherit;font-weight:800;color:var(--ink);padding:2px 4px;border:1px solid var(--orange-deep);border-radius:6px;background:#fff;vertical-align:baseline}
+  .inline-input:focus{outline:2px solid var(--orange-soft);border-color:var(--orange-deep)}
+
+  /* heat pump dark band */
+  .elec{background:var(--bg-dark);color:#fff;border-top:none}
+  .elec .eyebrow{background:rgba(255,230,61,.16);color:#ffe98a}
+  .elec h2{color:#fff}
+  .elec .lead{color:#b9bec7}
+  .elec .grid .card{background:#1f222a;border-color:#2a2e37}
+  .elec .grid .card:hover{border-color:var(--orange)}
+  .elec .card h3{color:#fff}
+  .elec .card p{color:#aab0ba}
+  .elec .card .ic{background:rgba(255,230,61,.16)}
+  .ebig{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-bottom:48px}
+  @media(max-width:760px){.ebig{grid-template-columns:1fr}}
+  .ebig .e{background:#1f222a;border:1px solid #2a2e37;border-radius:var(--radius);padding:24px}
+  .ebig .e .n{font-size:34px;font-weight:800;color:var(--orange)}
+  .ebig .e .t{font-size:13.5px;color:#aab0ba;margin-top:6px}
+  .adv{background:#1f222a;border:1px solid #2a2e37;border-radius:var(--radius);padding:30px;margin-top:8px;display:grid;grid-template-columns:1fr auto auto;gap:28px;align-items:center}
+  @media(max-width:760px){.adv{grid-template-columns:1fr}}
+  .adv .av .n{font-size:24px;font-weight:800;color:var(--orange)}
+  .adv .av .t{font-size:13px;color:#aab0ba}
+
+  /* roadmap */
+  .road{display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
+  @media(max-width:880px){.road{grid-template-columns:repeat(2,1fr)}}
+  @media(max-width:560px){.road{grid-template-columns:1fr}}
+  .rp{border:1px solid var(--line);border-radius:var(--radius);padding:24px;position:relative;background:#fff}
+  .rp .ph{font-size:11.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+  .rp.live-ph{border-color:var(--orange-deep);background:var(--orange-tint)}
+  .rp.live-ph .ph{color:var(--ink)}
+  .rp h3{font-size:17px;margin:8px 0}
+  .rp p{font-size:13.5px;color:var(--ink-2)}
+  .rp .ic{font-size:24px;margin-bottom:6px}
+
+  /* CTA */
+  .cta{background:linear-gradient(135deg,var(--orange),var(--orange-deep));color:var(--ink);text-align:center}
+  .cta h2{color:var(--ink);font-size:clamp(28px,4vw,40px)}
+  .cta p{color:rgba(0,0,0,.72);font-size:18px;max-width:600px;margin:14px auto 30px}
+  .cta .btn-primary{background:var(--ink);color:#fff;box-shadow:0 10px 30px rgba(0,0,0,.18)}
+  .cta .btn-primary:hover{background:#000;color:#fff}
+  .cta .btn-ghost{background:transparent;border-color:rgba(0,0,0,.3);color:var(--ink)}
+  .cta .btn-ghost:hover{border-color:var(--ink);color:var(--ink)}
+  .cta .fine{margin-top:20px;font-size:13px;color:rgba(0,0,0,.62)}
+
+  /* footer */
+  footer{background:var(--ink);color:#aab0ba;padding:56px 0 30px}
+  .fgrid{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:32px;padding-bottom:34px;border-bottom:1px solid #2a2e37}
+  @media(max-width:760px){.fgrid{grid-template-columns:1fr 1fr}}
+  footer h4{color:#fff;font-size:13px;letter-spacing:.05em;text-transform:uppercase;margin-bottom:14px}
+  footer ul{list-style:none;display:flex;flex-direction:column;gap:9px}
+  footer a{font-size:14px}
+  footer a:hover{color:var(--orange)}
+  .fbtm{display:flex;justify-content:space-between;align-items:center;padding-top:22px;font-size:13px;flex-wrap:wrap;gap:12px}
+  .co-brand{display:flex;align-items:center;gap:10px;font-weight:700;color:#fff;font-size:18px}
+  .co-brand .dot{width:28px;height:28px;border-radius:8px;background:var(--orange);display:flex;align-items:center;justify-content:center;color:var(--ink)}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<header class="nav">
+  <div class="wrap nav-inner">
+    <a class="logo" href="#top" aria-label="MoveIntel">
+      <img src="HT_MI_Logo.png" width="248" height="52" alt=""/> <small>2026</small>
+    </a>
+    <nav class="nav-links">
+      <a href="#signals">Signals</a>
+      <a href="#plays">Commercials</a>
+      <a href="#products">Products</a>
+      <a href="#roi">ROI</a>
+      <a href="#heatpump">Heat-Pumps</a>
+      <a href="#roadmap">Roadmap</a>
+    </nav>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero" id="top">
+  <div class="wrap hero-inner">
+    <div>
+      <span class="eyebrow">🇬🇧 UK Home Mover Intelligence</span>
+      <h1>Defend your home moving customer base <em>before the boiler breaks.</em></h1>
+      <p class="sub">MoveIntel delivers weekly, property-level home-move signals so you can win cover at the single highest-intent moment in the homeownership lifecycle, when someone inherits an unknown boiler, with no service history and no protection in place.</p>
+      <div class="hero-cta">
+        <a class="btn btn-primary" href="#contact">Book a Demo</a>
+        <a class="btn btn-ghost" href="#plays">See the Commercial Plays</a>
+      </div>
+      <p class="trust">Built for <b>boiler &amp; heating cover acquisition</b>, <b>retention at move</b>, <b>risk-based pricing</b> and <b>heat-pump pipeline</b>.</p>
+    </div>
+    <div class="panel">
+      <div class="ph"><span>Move Signals · Weekly Feed</span><span class="live"><span class="pulse"></span>WEEKLY</span></div>
+      <div class="sig"><div class="ic">🏡</div><div><div class="nm">NewlyListed</div><div class="ds">Property enters market · earliest intent signal</div></div></div>
+      <div class="sig"><div class="ic">🤝</div><div><div class="nm">SoldSTC</div><div class="ds">Offer accepted · 8–12 weeks from completion</div></div></div>
+      <div class="sig"><div class="ic">⏱️</div><div><div class="nm">CompletingSoon</div><div class="ds">Predicted completion · 21–35 days out</div></div><span class="star">★ KEY</span></div>
+      <div class="sig"><div class="ic">🔑</div><div><div class="nm">Completed</div><div class="ds">Keys handed over · acquisition window opens</div></div></div>
+      <div class="sig"><div class="ic">🔧</div><div><div class="nm">NewHomeowner</div><div class="ds">New occupant + inherited boiler · cover window</div></div></div>
+    </div>
+  </div>
+  <div class="wrap">
+    <div class="stats">
+      <div class="stat"><div class="num">c.30k / yr</div><div class="lbl">Of a 500k base move home each year — every one a lapse risk<span class="info">i<span class="tip">Modelled estimate: ~6% of UK homeowners move each year (ONS / Land Registry transaction volumes) applied to a 500k base. (To be confirmed against actual move rate).</span></span></div></div>
+      <div class="stat"><div class="num">c.120k</div><div class="lbl">UK home moves per month · the acquisition universe<span class="info">i<span class="tip">Based on UK residential transaction volumes of roughly 1.0–1.3m completions per year (HMRC / HM Land Registry), i.e. c.120k per month on average.</span></span></div></div>
+      <div class="stat"><div class="num">21–35</div><div class="lbl">Days advance warning · CompletingSoon<span class="info">i<span class="tip">MoveIntel's proprietary CompletingSoon model predicts legal completion 21–35 days ahead, before the Land Registry record itself publishes.</span></span></div></div>
+      <div class="stat"><div class="num">80%+</div><div class="lbl">Movers inherit a boiler with no cover &amp; unknown history<span class="info">i<span class="tip">Directional estimate: most resale homes transact with an existing boiler and no transferable cover or warranty for the new owner.</span></span></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- PROBLEM -->
+<section class="section prob" id="problem">
+  <div class="wrap">
+    <span class="eyebrow">The Problem</span>
+    <h2>A house move is a boiler-cover decision waiting to happen.</h2>
+    <p class="lead">When someone moves home they take on a boiler they didn't choose, can't see the service history for, and have no warranty on. It's the moment anxiety about breakdown is highest and loyalty to any provider is zero. Yet  cover providers  mostly address these customers late, on a price-comparison page, competing on price vs the rest of the market.</p>
+    <div class="prob-grid">
+      <div>
+        <h3 style="font-size:20px;margin-bottom:14px">Today's acquisition signals all arrive too late</h3>
+        <table class="cmp">
+          <tr><th>Signal available today</th><th>Limitation</th></tr>
+          <tr><td>Price-comparison click (MSM / MSE)</td><td>Every competitor sees it; high CPA; pure price-shopping, low loyalty</td></tr>
+          <tr><td>Customer searches after a breakdown</td><td>Reactive; a distress purchase already shopped around</td></tr>
+          <tr><td>Renewal of an inherited policy</td><td>Rare; most movers never had cover at the old address</td></tr>
+          <tr><td>Existing customer calls to cancel (moved)</td><td>Churn decision already made; policy tied to old property</td></tr>
+        </table>
+      </div>
+      <div>
+        <h3 style="font-size:20px;margin-bottom:14px;visibility:hidden" aria-hidden="true">&nbsp;</h3>
+        <div class="bignum">
+          <div class="n"><strong>c.</strong>30k</div>
+          <div class="t">Of a <b>500,000-customer</b> base, roughly this many move home each year (≈6%). Every one is a moment the policy can quietly lapse — <b>retention is the single biggest prize.</b></div>
+          <div style="height:18px"></div>
+          <div class="n">0 <strong>days warning</strong></div>
+          <div class="t">Advance warning today. MoveIntel turns that into a 21–35 day head start to save them.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="section" id="how">
+  <div class="wrap">
+    <span class="eyebrow">How It Works</span>
+    <h2>From public data to a ranked list of homes to contact.</h2>
+    <p class="lead">MoveIntel ingests Land Registry, EPC, planning and live-listing data, runs it through a proprietary completion-inference engine, and enriches every event with the heating and property attributes that Home Services companies underwrite on. Delivered as a weekly feed, ready for your CRM or outreach stack.</p>
+    <div class="steps">
+      <div class="step"><div class="no">1</div><h3>Weekly Data Ingestion</h3><p>Land Registry price-paid, the EPC register, planning applications and live market listings ingested and normalised on a weekly cycle.</p></div>
+      <div class="step"><div class="no">2</div><h3>Address Resolution</h3><p>Every event matched to a UPRN via a licensed address layer, enabling clean dedupe against your existing customer base.</p></div>
+      <div class="step"><div class="no">3</div><h3>Completion Inference</h3><p>Our statistical model predicts the legal completion date 21–35 days in advance, so outreach lands as the keys change hands.</p></div>
+      <div class="step"><div class="no">4</div><h3>Heating-Enriched Delivery</h3><p>Each home tagged with EPC rating, heating system, boiler-age proxy and tenure, delivered by secure API or SFTP.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- SIGNAL SUITE -->
+<section class="section" id="signals" style="background:var(--bg-warm)">
+  <div class="wrap">
+    <span class="eyebrow">The Signal Suite</span>
+    <h2>Five signals. The full move lifecycle, mapped to your funnel.</h2>
+    <p class="lead">From the moment a property hits the market to the day a new homeowner settles in, each signal lines up with a specific action.</p>
+    <div class="grid g3">
+      <div class="card"><div class="ic">🏡</div><h3>NewlyListed</h3><p>Earliest intent signal. Ideal for brand and nurture so you already known when the move completes.</p><span class="tag">Early funnel</span></div>
+      <div class="card"><div class="ic">🤝</div><h3>SoldSTC</h3><p>Offer accepted, 8–12 weeks out. Begin the "protect your new boiler from day one" narrative.</p><span class="tag">Mid funnel</span></div>
+      <div class="card"><div class="ic">⏱️</div><h3>CompletingSoon ★</h3>
+        <p>Our proprietary signal, completion predicted 21–35 days ahead. The primary acquisition trigger: outreach lands as they move in.</p>
+        <p><br>
+        </p>
+      <span class="tag hi">Unique IP · Highest value</span></div>
+      <div class="card"><div class="ic">🔑</div><h3>Completed</h3><p>Keys handed over. The new owner now owns an unknown boiler. Hit them with a new-home cover + first-service offer immediately.</p><span class="tag">High intent</span></div>
+      <div class="card"><div class="ic">🔧</div><h3>NewHomeowner</h3><p>Occupant confirmed. Onboarding, annual-service booking, and heat-pump / replacement propensity assessment window.</p><span class="tag">Post-move</span></div>
+      <div class="card" style="background:var(--ink);color:#fff;border-color:var(--ink)"><div class="ic" style="background:rgba(255,230,61,.18)">🛡️</div><h3 style="color:#fff">Portfolio Overlay</h3><p style="color:#c7ccd4">Match the weekly feed to your existing customer base, so you spot <b style="color:#fff">your own customers moving</b> and trigger retention before they cancel.</p><span class="tag hi">Retention defence</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- COMMERCIAL PLAYS -->
+<section class="section" id="plays">
+  <div class="wrap">
+    <span class="eyebrow">Commercial Plays</span>
+    <h2>Five ways move data pays for itself.</h2>
+    <p class="lead">Move signals aren't just a lead list, they touch acquisition cost, retention, loss ratio and the heat-pump pipeline at the same time.</p>
+    <div class="grid g3">
+      <div class="card" style="border-color:var(--orange-deep);box-shadow:var(--shadow-lg)"><div class="ic">🔒</div><h3>1 · Defend retention <span style="font-size:11px;color:var(--ink);background:var(--orange);padding:2px 7px;border-radius:999px">★ biggest prize</span></h3><p>With a 500k base, c.30k customers move home each year. Overlay the feed to catch them and trigger a "take your cover to your new home" flow, stopping policies lapsing silently when the property changes.</p></div>
+      <div class="card"><div class="ic">🎯</div><h3>2 · Acquire at move-in</h3><p>Reach new homeowners in the 21–35 day window with a "new home, unknown boiler, get covered + a first service" offer, before they hit a comparison site. Direct, higher-loyalty than price aggregators.</p></div>
+      <div class="card"><div class="ic">📊</div><h3>3 · Price on real risk</h3><p>EPC + heating-system + boiler-age enrichment lets underwriting avoid adverse selection, pricing or screening the oldest, highest-claim boilers instead of flat-rating every mover.</p></div>
+      <div class="card"><div class="ic">♨️</div><h3>4 · Feed the heat-pump pipeline</h3><p>Movers in inefficient (D–G EPC) homes with ageing gas boilers are the prime renovation cohort. Flag them for heat-pump and A-rated replacement offers in the post-move window.</p></div>
+      <div class="card"><div class="ic">🏘️</div><h3>5 · Win new landlords</h3><p>Buy-to-let and tenure signals identify newly-purchased rental properties needing annual gas safety (CP12) and landlord cover, a distinct, recurring-revenue segment.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- PRODUCTS -->
+<section class="section price" id="products">
+  <div class="wrap">
+    <span class="eyebrow">Products &amp; Pricing</span>
+    <h2>Three tiers. One integrated platform.</h2>
+    <p class="lead">Start with the Core Signal Feed and add the enrichment that matters most to a cover business. All tiers include enterprise security and ICO-registered data handling. <em>Pricing on application — scoped to a pilot or full rollout.</em></p>
+    <div class="pcards">
+      <div class="pc">
+        <span class="kicker">Tier 1 · Core</span>
+        <h3>Signal Feed</h3>
+        <p class="desc">Weekly home-mover signals across the UK acquisition universe, plus matching to your existing UPRN base for retention.</p>
+        <div class="amt" style="font-size:17px;color:var(--muted);font-weight:700">Pricing on application</div>
+        <ul>
+          <li>All 5 move signals delivered weekly</li>
+          <li>UK-wide CompletingSoon acquisition universe</li>
+          <li>Portfolio overlay, flag your own customers moving</li>
+          <li>21–35 day advance completion prediction</li>
+          <li>API or SFTP delivery</li>
+          <li>Self-managed team portal</li>
+        </ul>
+        <a class="btn btn-ghost" href="#contact">Request a Sample</a>
+      </div>
+      <div class="pc feat">
+        <span class="badge">Best fit for HT</span>
+        <span class="kicker">Tier 2 · Bolt-on</span>
+        <h3>Boiler &amp; Heating Intelligence</h3>
+        <p class="desc">The enrichment a cover business underwrites and segments on, turning a mover list into a risk-ranked, targetable file.</p>
+        <div class="amt" style="font-size:17px;color:var(--muted);font-weight:700">Pricing on application</div>
+        <ul>
+          <li>Everything in Core Signal Feed</li>
+          <li>EPC energy rating &amp; validity date</li>
+          <li>Heating system type (gas, electric, heat pump)</li>
+          <li>Boiler-age proxy &amp; system-age indicators</li>
+          <li>Property type &amp; tenure (owner / landlord)</li>
+          <li>Estimated energy spend for segmentation</li>
+          <li>Risk filters for pricing &amp; screening</li>
+        </ul>
+        <a class="btn btn-primary" href="#contact">Book a Demo</a>
+      </div>
+      <div class="pc">
+        <span class="kicker">Tier 3 · Bolt-on</span>
+        <h3>Heat Pump &amp; Electrification Propensity</h3>
+        <p class="desc">Property-level scores for the upgrade journey, feeding your heat-pump and sustainable-heating business.</p>
+        <div class="amt" style="font-size:17px;color:var(--muted);font-weight:700">Pricing on application</div>
+        <ul>
+          <li>Everything in Core + Boiler Intelligence</li>
+          <li>Heat-pump suitability propensity score</li>
+          <li>Boiler-replacement likelihood score</li>
+          <li>Solar PV &amp; battery propensity</li>
+          <li>Smart / time-of-use tariff propensity</li>
+          <li>Move × upgrade intersection signal</li>
+          <li>High-propensity mover prioritisation</li>
+        </ul>
+        <a class="btn btn-ghost" href="#contact">Enquire Now</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ROI -->
+<section class="section" id="roi">
+  <div class="wrap">
+    <span class="eyebrow">Return on Investment</span>
+    <h2>The numbers that matter.</h2>
+    <p class="lead">Adjust the assumptions to model the value. Retention is the primary case; acquisition is upside on top. Conservative defaults · GBP · figures are illustrative for this draft.</p>
+    <div class="roi-cols">
+      <!-- 1 · RETENTION (primary) -->
+      <div class="roi-panel feat">
+        <div class="ptag"><span>1 · Retention — your base moving</span><span>★ biggest prize</span></div>
+        <div class="rows">
+          <div class="roi-row"><div>Existing customer base</div><input id="base" type="number" value="500000"></div>
+          <div class="roi-row"><div>Annual move rate of base (%)</div><input id="moverate" type="number" value="6" step="0.5"></div>
+          <div class="roi-row slider-row">
+            <div class="slider-head">
+              <div>Lapse-at-move avoided with overlay <span class="keytag">★ key metric</span></div>
+              <div class="slider-val"><span id="saveOut">10</span>%</div>
+            </div>
+            <input id="save" class="rng" type="range" min="0" max="60" value="10" step="1">
+            <div class="rng-scale"><span>0%</span><span>30%</span><span>60%</span></div>
+          </div>
+          <div class="roi-row"><div>Annual gross margin per policy (£)</div><input id="margin" type="number" value="70"></div>
+          <div class="roi-row"><div>Customers saved / year</div><div class="val" id="savedYr">—</div></div>
+        </div>
+        <div class="roi-summary accent"><div class="n" id="ret">£—</div><div class="t">Annual retention gross margin</div></div>
+      </div>
+      <!-- 2 · ACQUISITION (upside) -->
+      <div class="roi-panel plain">
+        <div class="ptag"><span>2 · Acquisition — new movers</span><span>upside</span></div>
+        <div class="rows">
+          <div class="roi-row"><div>UK movers targeted / month</div><input id="movers" type="number" value="10000"></div>
+          <div class="roi-row"><div>Cost per outreach (£)</div><input id="cost" type="number" value="0.75" step="0.05"></div>
+          <div class="roi-row"><div>Mover → policy conversion (%)</div><input id="conv" type="number" value="1.5" step="0.1"></div>
+          <div class="roi-row"><div>New policies / month</div><div class="val" id="newPolicies">—</div></div>
+          <div class="roi-row"><div>Effective CPA with MoveIntel (£)</div><div class="val" id="cpa">—</div></div>
+          <div class="roi-row" style="font-size:12px;color:var(--muted)"><div>Uses gross margin per policy from the retention assumptions.</div><div></div></div>
+        </div>
+        <div class="roi-summary"><div class="n" id="acq">£—</div><div class="t">Annual acquisition gross margin</div></div>
+      </div>
+    </div>
+
+    <!-- 3 · TOTAL, then 4 · CUMULATIVE at the bottom -->
+    <div class="roi-final">
+      <div class="roi-total"><div class="n" id="total">£—</div><div class="t">Total annual gross-margin contribution · retention + acquisition</div></div>
+      <div class="roi-cumulative">
+        <div class="n" id="ltv">£—</div>
+        <div class="t">Cumulative value over an average retained policy life of <input id="life" class="inline-input" type="number" value="4" step="0.5"> yrs, the full multi-year prize</div>
+      </div>
+    </div>
+    <p class="roi-note">Illustrative model · GBP. Retention margin = base × move rate × lapse-avoided × annual margin per policy. Acquisition margin = new policies/yr × annual margin per policy. Cumulative value multiplies the total annual figure by the average retained policy life.</p>
+  </div>
+</section>
+
+<!-- HEAT PUMP / ELECTRIFICATION -->
+<section class="section elec" id="heatpump">
+  <div class="wrap">
+    <span class="eyebrow">Heat Pump &amp; Upgrade Intelligence</span>
+    <h2>Movers are the prime cohort for heating replacement.</h2>
+    <p class="lead">HT already installs heat pumps and offers A-rated boiler replacements. Home movers are disproportionately likely to renovate heating in the 6–12 months after completion, and MoveIntel knows exactly which homes are in that active-change state, and which have the worst-performing systems.</p>
+    <div class="ebig">
+      <div class="e"><div class="n">6–12 mo</div><div class="t">Peak heating-replacement window after a move completes, when renovation budgets and disruption tolerance are highest.</div></div>
+      <div class="e"><div class="n">D–G EPC</div><div class="t">Inefficient homes with ageing gas boilers are the strongest heat-pump and A-rated replacement candidates, identifiable from EPC enrichment.</div></div>
+      <div class="e"><div class="n">£3k–£12k</div><div class="t">Order value of a heat-pump install vs. a single boiler-cover policy, a step-change in revenue per mover.</div></div>
+    </div>
+    <div class="grid g4">
+      <div class="card"><div class="ic">♨️</div><h3>Heat Pump Suitability</h3><p>Scores homes by physical and energy suitability, feeding qualified installation leads to your heat-pump team.</p></div>
+      <div class="card"><div class="ic">🔧</div><h3>Boiler Replacement</h3><p>Flags ageing systems likely to fail, the trigger for an A-rated replacement upsell when an inherited boiler is beyond economic repair.</p></div>
+      <div class="card"><div class="ic">☀️</div><h3>Solar &amp; Battery</h3><p>Identifies rooftops and homes suited to solar PV and storage, extending your sustainable-home proposition.</p></div>
+      <div class="card"><div class="ic">📊</div><h3>Smart Tariff</h3><p>Scores households likely to adopt time-of-use tariffs, the lowest-churn, highest-engagement segment to protect.</p></div>
+    </div>
+    <div class="adv">
+      <div class="av-main">
+        <h3 style="font-size:20px;color:#fff;margin-bottom:6px">The intersection nobody else holds</h3>
+        <p style="color:#aab0ba;font-size:14.5px">A static propensity database can't see who's <em>moving</em>. A mover list can't see <em>heating condition</em>. MoveIntel overlays both, so your CRM reaches the right home, with the right product, in the strongest window that converts.</p>
+      </div>
+      <div class="av"><div class="n">Move&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ×</div><div class="t">change-of-state signal</div></div>
+      <div class="av"><div class="n">Heating</div><div class="t">condition &amp; propensity</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ROADMAP -->
+<section class="section" id="roadmap" style="background:var(--bg-warm)">
+  <div class="wrap">
+    <span class="eyebrow">Product Roadmap</span>
+    <h2>Built in phases. Valuable from day one.</h2>
+    <p class="lead">Each phase delivers standalone commercial value while laying the foundation for the next.</p>
+    <div class="road">
+      <div class="rp live-ph"><div class="ic">📡</div><div class="ph">Phase 1 · Live</div><h3>Core Signal Feed</h3><p>Weekly mover signals + CompletingSoon completion model. Portfolio overlay for retention. API / SFTP delivery.</p></div>
+      <div class="rp"><div class="ic">🛡️</div><div class="ph">Phase 2</div><h3>Boiler &amp; Heating Intelligence</h3><p>EPC, heating-system and boiler-age enrichment for risk-based pricing, screening and segmentation.</p></div>
+      <div class="rp"><div class="ic">♨️</div><div class="ph">Phase 3</div><h3>Heat Pump &amp; Electrification</h3><p>Property-level heat-pump, replacement, solar, battery and smart-tariff scores. Move × upgrade signal.</p></div>
+      <div class="rp"><div class="ic">👥</div><div class="ph">Phase 4</div><h3>Bespoke Data &amp; Consultation</h3><p>MoveIntel works alongside your acquisition, retention and underwriting teams to build on new opportunities.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="section cta" id="contact">
+  <div class="wrap">
+    <h2>Ready to reach movers before the breakdown?</h2>
+    <p>Talk to us about a data sample, a pilot on a single region, or a full business case for your acquisition and retention teams.</p>
+    <div class="hero-cta" style="justify-content:center">
+      <a class="btn btn-primary" href="mailto:hello@moveintel.co.uk?subject=HT%20%C3%97%20MoveIntel%20Demo">Book a Demo →</a>
+      <a class="btn btn-ghost" href="mailto:hello@moveintel.co.uk?subject=HT%20Data%20Sample">Request a Data Sample</a>
+    </div>
+    <p class="fine">Flexible pricing · pilot or full rollout · no lock-in</p>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <div class="fgrid">
+      <div>
+        <div class="co-brand"> MoveIntel Ltd</div>
+        <p style="margin-top:12px;font-size:14px;max-width:300px">UK home-mover intelligence for energy and home-services providers. Weekly property-level signals from Land Registry, EPC and market-listing sources.</p>
+      </div>
+      <div><h4>Product</h4><ul><li><a href="#signals">Signal Suite</a></li><li><a href="#products">Core Feed</a></li><li><a href="#products">Boiler Intelligence</a></li><li><a href="#heatpump">Heat Pump Propensity</a></li></ul></div>
+      <div><h4>Intelligence</h4><ul><li><a href="#plays">Commercial Plays</a></li><li><a href="#how">CompletingSoon Model</a></li><li><a href="#how">UPRN Matching</a></li><li><a href="#roi">ROI Model</a></li></ul></div>
+      <div><h4>Company</h4><ul><li><a href="#contact">Contact Us</a></li><li><a href="#">Privacy Policy</a></li><li><a href="#">Data Sources</a></li><li><a href="#">ICO Registration</a></li></ul></div>
+    </div>
+    <div class="fbtm">
+      <div>© 2026 MoveIntel Ltd — Home Services&nbsp; proposal (draft)</div>
+      <div style="display:flex;gap:18px"><a href="#">Privacy</a><a href="#">Terms</a><a href="#">ICO Registered</a></div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const $=id=>document.getElementById(id);
+  const gbp=n=>'£'+Math.round(n).toLocaleString('en-GB');
+  const gbpK=n=>{ n=Math.round(n); return n>=1000? '£'+Math.round(n/1000)+'k' : '£'+n; };
+  function calc(){
+    const movers=+$('movers').value||0, cost=+$('cost').value||0, conv=(+$('conv').value||0)/100,
+          margin=+$('margin').value||0, life=+$('life').value||0,
+          base=+$('base').value||0, moverate=(+$('moverate').value||0)/100, save=(+$('save').value||0)/100;
+    // acquisition (annual gross-margin contribution)
+    const newPolM = movers*conv;
+    const cpa = conv>0 ? cost/conv : 0;
+    const acqAnnual = newPolM*12*margin;
+    // retention (annual gross-margin contribution)
+    const savedYr = base*moverate*save;
+    const retAnnual = savedYr*margin;
+    // totals
+    const total = acqAnnual+retAnnual;     // total annual gross margin
+    const ltv = total*life;                // cumulative over retained life
+    $('savedYr').textContent = Math.round(savedYr).toLocaleString('en-GB');
+    $('newPolicies').textContent = Math.round(newPolM).toLocaleString('en-GB');
+    $('cpa').textContent = '£'+cpa.toFixed(2);
+    $('acq').textContent = gbpK(acqAnnual);
+    $('ret').textContent = gbpK(retAnnual);
+    $('total').textContent = gbpK(total);
+    $('ltv').textContent = gbpK(ltv);
+    // sync slider readout + fill
+    const s=$('save'); $('saveOut').textContent = s.value;
+    const pct=(s.value-s.min)/(s.max-s.min)*100;
+    s.style.background='linear-gradient(90deg,var(--orange) 0%,var(--orange) '+pct+'%,#efe7c4 '+pct+'%,#efe7c4 100%)';
+  }
+  document.querySelectorAll('#roi input').forEach(i=>i.addEventListener('input',calc));
+  calc();
+</script>
+</body>
+</html>
